@@ -4,7 +4,26 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    children: []
+    redirectTo: '/characters',
+    pathMatch: 'full'
+  }, {
+    path: 'characters',
+    loadChildren: './characters/characters.module#CharactersModule'
+  }, {
+    path: 'comics',
+    loadChildren: './comics/comics.module#ComicsModule'
+  }, {
+    path: 'creators',
+    loadChildren: './creators/creators.module#CreatorsModule'
+  }, {
+    path: 'events',
+    loadChildren: './events/events.module#EventsModule'
+  }, {
+    path: 'series',
+    loadChildren: './series/series.module#SeriesModule'
+  }, {
+    path: 'stories',
+    loadChildren: './stories/stories.module#StoriesModule'
   }
 ];
 

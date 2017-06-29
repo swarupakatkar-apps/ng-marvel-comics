@@ -1,0 +1,22 @@
+<div *ngIf="dataWrapper">
+    <div class="row">
+        <div class="col-md-3 col-sm-4 col-xs-12" *ngFor="let item of dataWrapper.data.results">
+            <div>
+                <a [routerLink]="['/series', item.id]" class="character-link">
+                    <img src="{{item.thumbnail.path}}.{{item.thumbnail.extension}}" class="character-image img-responsive center-block" />
+                    <div class="comic-name">{{item.title}}</div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <nav aria-label="...">
+        <ul class="pager">
+            <li class="previous" [ngClass]="{'disabled': dataWrapper.data.offset == 0}">
+                <a href="#" (click)="getPrevious()"><span aria-hidden="true">&larr;</span> Previous</a>
+            </li>
+            <li class="next" [ngClass]="{'disabled': dataWrapper.data.offset + dataWrapper.data.count >= dataWrapper.data.total}">
+                <a href="#" (click)="getNext()">Next <span aria-hidden="true">&rarr;</span></a
+            ></li>
+        </ul>
+    </nav>
+</div>

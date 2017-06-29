@@ -1,1 +1,62 @@
 /* You can add global styles to this file, and also import other style files */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+app-root > .container {
+  padding: 60px 15px 0;
+}
+
+.container .text-muted {
+  margin: 20px 0;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.character-link:hover, .character-link:focus {
+  text-decoration: none;
+}
+
+.character-name, .comic-name, .story-name {
+  color: #fff;
+  font-size: 14px;
+  background-color: rgba(0,0,0,.5);
+  left: 0;
+  right: 0;
+  z-index: 20;
+  text-align: center;
+  pointer-events: none;
+  margin-bottom: 2em;
+}
+
+.comic-name {
+  height: 3em;
+}
+
+.story-name {
+  height: 6em;
+}
+
+.character-image {
+  height: 263px;
+}
+
+.character-image-detail {
+  height: 500px;
+}

@@ -1,0 +1,44 @@
+<div *ngIf="dataWrapper">
+  <div *ngFor="let item of dataWrapper.data.results">
+    <div class="row">
+      <div class="col-sm-5">
+        <img src="{{item.thumbnail.path}}.{{item.thumbnail.extension}}" class="img-responsive character-image-detail" />
+      </div>
+      <div class="col-sm-7">
+        <h3 class="media-heading">{{item.name}}</h3>
+        <p [innerHTML]="item.description"></p>
+        <ul class="list-inline">
+          <li *ngFor="let url of item.urls"><a href="{{url.url}}" target="_blank">{{url.type | titlecase}}</a></li>
+        </ul>
+      </div>
+    </div>
+    <br />
+    <div class="row">
+
+      <div class="col-md-3">
+        <div class="list-group">
+          <div class="list-group-item active"><span class="badge">{{item.stories.available}}</span> <strong>Stories</strong></div>
+          <button type="button" (click)="navigateToItem('/stories', story.resourceURI)" class="list-group-item" *ngFor="let story of item.stories.items">{{story.name}}</button>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="list-group">
+          <div class="list-group-item active"><span class="badge">{{item.comics.available}}</span> <strong>Comics</strong></div>
+          <button type="button" (click)="navigateToItem('/comics', comic.resourceURI)" class="list-group-item" *ngFor="let comic of item.comics.items">{{comic.name}}</button>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="list-group">
+          <div class="list-group-item active"><span class="badge">{{item.series.available}}</span> <strong>Series</strong></div>
+          <button type="button" (click)="navigateToItem('/series', series.resourceURI)" class="list-group-item" *ngFor="let series of item.series.items">{{series.name}}</button>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="list-group">
+          <div class="list-group-item active"><span class="badge">{{item.events.available}}</span> <strong>Events</strong></div>
+          <button type="button" (click)="navigateToItem('/events', event.resourceURI)" class="list-group-item" *ngFor="let event of item.events.items">{{event.name}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
